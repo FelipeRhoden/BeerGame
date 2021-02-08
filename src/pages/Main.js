@@ -7,25 +7,25 @@ export default function Main(props){
 
     const refresh = () => {
         onChangeStatus(false);
-        for (const quest of props.quests) {
+        for (const quest of props.quests.answers) {
             let element = document.getElementById(quest.value);
             element.checked = false;
         }
         props.newQuest();
     }
 
-    const quests =  props.quests.map(
-        (quest)=>(
-            <p key={quest.value}>
+    const quests =  props.quests.answers.map(
+        (answer)=>(
+            <p key={answer.value}>
                 
                 <label >
                     
-                    <input name="quests" type="radio" id={quest.value} onChange={() => onChangeStatus(true)}/>
+                    <input name="quests" type="radio" id={answer.value} onChange={() => onChangeStatus(true)}/>
                     {!status ? 
-                        <span>{quest.value}</span>
-                        :<span className={quest.validate ? "green-text" : "red-text"}>
-                            {quest.value}
-                            {quest.validate?
+                        <span>{answer.value}</span>
+                        :<span className={answer.validate ? "green-text" : "red-text"}>
+                            {answer.value}
+                            {answer.validate?
                                 " Certa"
                                 :" Errada"
                             }
@@ -38,6 +38,7 @@ export default function Main(props){
 
     return (
         <div>
+            <p>{props.quests.quest}</p>
             <form>
                 {quests}
             </form>
