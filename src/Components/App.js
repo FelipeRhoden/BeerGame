@@ -12,11 +12,11 @@ function App (){
   const [quests, onChangeQuests] = React.useState(random());
 
   return (
-    <>
+    <div>
       {Header({brand:"Beer Game"})}
       {Main({quests: quests, newQuest:() => onChangeQuests(random())})}
       {Footer}
-    </>
+    </div>
   );
 }
 
