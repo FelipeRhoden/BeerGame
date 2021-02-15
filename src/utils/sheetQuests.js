@@ -1,4 +1,5 @@
-export default [
+
+const sheetQuests = [
     {
         quest: "Pergunta 1",
         answers:[

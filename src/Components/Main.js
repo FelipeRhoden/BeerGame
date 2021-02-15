@@ -1,9 +1,8 @@
-import React from 'react';
+'use strict';
 
-export default function Main(props){
-
+function Main(props){
+    
     const [status, onChangeStatus] = React.useState(false);
-
 
     const refresh = () => {
         onChangeStatus(false);
@@ -14,7 +13,7 @@ export default function Main(props){
         props.newQuest();
     }
 
-    const quests =  props.quests.answers.map(
+    const quests = props.quests.answers.map(
         (answer)=>(
             <p key={answer.value}>
                 

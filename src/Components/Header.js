@@ -1,6 +1,6 @@
-import React from 'react';
+'use strict';
 
-export default function Header(props){
+function Header(props){
     return (
         <header>
             <h1>{props.brand}</h1>

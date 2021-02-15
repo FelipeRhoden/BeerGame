@@ -1,6 +1,6 @@
-import React from 'react';
+'use strict';
 
-export default function Footer(props){
+function Footer(props){
     return (
         <footer>
             <div className={"footer-copyright"}>
