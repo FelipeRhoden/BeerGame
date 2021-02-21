@@ -1,6 +1,6 @@
 'use strict';
 
-class Footer extends RTCIceCandidate.Components {
+class Footer extends React.Components {
     constructor(props){
         super(props);
     }
