@@ -4,7 +4,7 @@ class Main extends React.Component {
     
     constructor(props){
         super(props);
-        state = {
+        this.state = {
             status : false
         }
 
