@@ -34,7 +34,7 @@ class Main extends React.Component {
                     <label >
                         
                         <input name="quests" type="radio" id={answer.value} onChange={() => this.onChangeStatus(true)}/>
-                        {!status ? 
+                        {!this.state.status ? 
                             <span>{answer.value}</span>
                             :<span className={answer.validate ? "green-text" : "red-text"}>
                                 {answer.value}
