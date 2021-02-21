@@ -18,11 +18,11 @@ class Main extends React.Component {
 
     refresh(){
         this.onChangeStatus(false);
-        for (const quest of props.quests.answers) {
+        for (const quest of this.props.quests.answers) {
             let element = document.getElementById(quest.value);
             element.checked = false;
         }
-        props.newQuest();
+        this.props.newQuest();
     }
 
     render(){
