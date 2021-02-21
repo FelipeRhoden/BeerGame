@@ -27,7 +27,7 @@ class Main extends React.Component {
 
     render(){
 
-        const quests = props.quests.answers.map(
+        const quests = this.props.quests.answers.map(
             (answer)=>(
                 <p key={answer.value}>
                     
@@ -51,13 +51,13 @@ class Main extends React.Component {
         
         return (
             <div>
-                <p>{props.quests.quest}</p>
+                <p>{this.props.quests.quest}</p>
                 <form>
                     {quests}
                 </form>
                 <button 
                     className={"waves-effect waves-light btn"} 
-                    onClick={refresh}
+                    onClick={this.refresh}
                 >
                     Proxima
                 </button>

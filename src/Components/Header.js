@@ -10,7 +10,7 @@ class Header extends React.Component {
     
         return (
             <header>
-                <h1>{props.brand}</h1>
+                <h1>{this.props.brand}</h1>
             </header>
         );
     }
