@@ -8,8 +8,8 @@ class Main extends React.Component {
             status : false
         }
 
-        this.onChangeStatus.bind(this);
-        this.refresh.bind(this);
+        this.onChangeStatus = this.onChangeStatus.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
 
     onChangeStatus(status){

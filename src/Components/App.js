@@ -4,7 +4,7 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.onChangeQuests.bind(this);
+    this.onChangeQuests = this.onChangeQuests.bind(this);
     this.state = {quests: this.random()};
   }
   random(){
