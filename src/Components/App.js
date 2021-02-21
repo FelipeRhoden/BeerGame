@@ -4,7 +4,7 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.onChangeQuests.bind(this);
+    this.onChangeQuests = this.onChangeQuests.bind(this);
     this.state = {quests: this.random()};
   }
   random(){
@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div>
         <Header brand="Beer Game" />
-        <Main quests={quests} newQuest={this.onChangeQuests} />
+        <Main quests={this.state.quests} newQuest={this.onChangeQuests} />
         <Footer />
       </div>
     )

@@ -4,12 +4,12 @@ class Main extends React.Component {
     
     constructor(props){
         super(props);
-        state = {
+        this.state = {
             status : false
         }
 
-        this.onChangeStatus.bind(this);
-        this.refresh.bind(this);
+        this.onChangeStatus = this.onChangeStatus.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
 
     onChangeStatus(status){
@@ -18,23 +18,23 @@ class Main extends React.Component {
 
     refresh(){
         this.onChangeStatus(false);
-        for (const quest of props.quests.answers) {
+        for (const quest of this.props.quests.answers) {
             let element = document.getElementById(quest.value);
             element.checked = false;
         }
-        props.newQuest();
+        this.props.newQuest();
     }
 
     render(){
 
-        const quests = props.quests.answers.map(
+        const quests = this.props.quests.answers.map(
             (answer)=>(
                 <p key={answer.value}>
                     
                     <label >
                         
                         <input name="quests" type="radio" id={answer.value} onChange={() => this.onChangeStatus(true)}/>
-                        {!status ? 
+                        {!this.state.status ? 
                             <span>{answer.value}</span>
                             :<span className={answer.validate ? "green-text" : "red-text"}>
                                 {answer.value}
@@ -51,13 +51,13 @@ class Main extends React.Component {
         
         return (
             <div>
-                <p>{props.quests.quest}</p>
+                <p>{this.props.quests.quest}</p>
                 <form>
                     {quests}
                 </form>
                 <button 
                     className={"waves-effect waves-light btn"} 
-                    onClick={refresh}
+                    onClick={this.refresh}
                 >
                     Proxima
                 </button>
