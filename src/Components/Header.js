@@ -1,6 +1,6 @@
 'use strict';
 
-class Header extends RTCIceCandidate.Component {
+class Header extends React.Component {
     
     constructor(props){
         super(props)

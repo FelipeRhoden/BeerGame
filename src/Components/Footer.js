@@ -1,6 +1,6 @@
 'use strict';
 
-class Footer extends React.Components {
+class Footer extends React.Component {
     constructor(props){
         super(props);
     }
