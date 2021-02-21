@@ -1,24 +1,35 @@
 'use strict';
 
-function App (){
+class App extends React.Component {
 
-  const random = () => {
+  constructor(props){
+    super(props);
+    this.onChangeQuests.bind(this);
+    this.state = {quests: this.random()};
+  }
+  random(){
     const min = Math.ceil(0);
     const max = Math.floor(sheetQuests.length - 1);
     const result = Math.floor(Math.random() * (max - min + 1)) + min;
     return sheetQuests[result];
   }
 
-  const [quests, onChangeQuests] = React.useState(random());
+  onChangeQuests(){
+    this.setState(
+      {quests: this.random()}
+    )
+  }
 
-  return (
-    <>
-      {Header({brand:"Beer Game"})}
-      {Main({quests: quests, newQuest:() => onChangeQuests(random())})}
-      {Footer}
-    </>
-  );
+  render(){
+    return (
+      <div>
+        <Header brand="Beer Game" />
+        <Main quests={quests} newQuest={this.onChangeQuests} />
+        <Footer />
+      </div>
+    )
+  }
 }
 
 
-ReactDOM.render(App(), document.getElementById('App'));
+ReactDOM.render(<App />, document.getElementById('App'));

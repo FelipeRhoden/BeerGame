@@ -1,11 +1,23 @@
 'use strict';
 
-function Main(props){
+class Main extends React.Component {
     
-    const [status, onChangeStatus] = React.useState(false);
+    constructor(props){
+        super(props);
+        state = {
+            status : false
+        }
 
-    const refresh = () => {
-        onChangeStatus(false);
+        this.onChangeStatus.bind(this);
+        this.refresh.bind(this);
+    }
+
+    onChangeStatus(status){
+        this.setState({status});
+    }
+
+    refresh(){
+        this.onChangeStatus(false);
         for (const quest of props.quests.answers) {
             let element = document.getElementById(quest.value);
             element.checked = false;
@@ -13,40 +25,43 @@ function Main(props){
         props.newQuest();
     }
 
-    const quests = props.quests.answers.map(
-        (answer)=>(
-            <p key={answer.value}>
-                
-                <label >
-                    
-                    <input name="quests" type="radio" id={answer.value} onChange={() => onChangeStatus(true)}/>
-                    {!status ? 
-                        <span>{answer.value}</span>
-                        :<span className={answer.validate ? "green-text" : "red-text"}>
-                            {answer.value}
-                            {answer.validate?
-                                " Certa"
-                                :" Errada"
-                            }
-                        </span>
-                    }
-                </label>
-            </p>
-        )
-    );
+    render(){
 
-    return (
-        <div>
-            <p>{props.quests.quest}</p>
-            <form>
-                {quests}
-            </form>
-            <button 
-                className={"waves-effect waves-light btn"} 
-                onClick={refresh}
-            >
-                Proxima
-            </button>
-        </div>
-    );
+        const quests = props.quests.answers.map(
+            (answer)=>(
+                <p key={answer.value}>
+                    
+                    <label >
+                        
+                        <input name="quests" type="radio" id={answer.value} onChange={() => this.onChangeStatus(true)}/>
+                        {!status ? 
+                            <span>{answer.value}</span>
+                            :<span className={answer.validate ? "green-text" : "red-text"}>
+                                {answer.value}
+                                {answer.validate?
+                                    " Certa"
+                                    :" Errada"
+                                }
+                            </span>
+                        }
+                    </label>
+                </p>
+            )
+        );
+        
+        return (
+            <div>
+                <p>{props.quests.quest}</p>
+                <form>
+                    {quests}
+                </form>
+                <button 
+                    className={"waves-effect waves-light btn"} 
+                    onClick={refresh}
+                >
+                    Proxima
+                </button>
+            </div>
+       );
+    }
 }

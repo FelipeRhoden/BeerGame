@@ -1,9 +1,17 @@
 'use strict';
 
-function Header(props){
-    return (
-        <header>
-            <h1>{props.brand}</h1>
-        </header>
-    );
+class Header extends RTCIceCandidate.Component {
+    
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+    
+        return (
+            <header>
+                <h1>{props.brand}</h1>
+            </header>
+        );
+    }
 }
